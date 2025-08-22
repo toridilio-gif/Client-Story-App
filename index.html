@@ -1,0 +1,371 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Client Story Generator&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f3f4f6;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 900px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.form-input {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #d1d5db;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.form-input:focus {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>outline: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: #4f46e5;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 12px 24px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-primary {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #4f46e5;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-primary:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #4338ca;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-secondary {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #e5e7eb;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #4b5563;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-secondary:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #d1d5db;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.message-box {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 24px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.loading-container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.loading-spinner {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: spin 1s linear infinite;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 4px solid #f3f4f6;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-top: 4px solid #4f46e5;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 40px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 40px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes spin {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>0% { transform: rotate(0deg); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>100% { transform: rotate(360deg); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.prose li {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 0.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="bg-gray-100 flex items-center justify-center min-h-screen p-4"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Main Container --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container bg-white p-8 rounded-2xl shadow-xl space-y-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-3xl font-bold text-gray-800"&gt;Client Story Generator&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-gray-500 mt-2"&gt;Fill out the details below to generate a client success story.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Form Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="space-y-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;label for="clientName" class="block text-sm font-medium text-gray-700 mb-1"&gt;Client Name&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="text" id="clientName" class="form-input" placeholder="e.g., Acme Corp"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;label for="industry" class="block text-sm font-medium text-gray-700 mb-1"&gt;Industry&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="text" id="industry" class="form-input" placeholder="e.g., Tech Startup, Manufacturing"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;label for="problem" class="block text-sm font-medium text-gray-700 mb-1"&gt;Problem they were facing&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;textarea id="problem" rows="3" class="form-input" placeholder="e.g., They struggled with manual data entry which led to frequent errors and wasted time."&gt;&lt;/textarea&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;label for="solution" class="block text-sm font-medium text-gray-700 mb-1"&gt;Our solution&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;textarea id="solution" rows="3" class="form-input" placeholder="e.g., We implemented a new automated software that streamlined their workflow and integrated with existing systems."&gt;&lt;/textarea&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;label for="results" class="block text-sm font-medium text-gray-700 mb-1"&gt;Key results/impact&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;textarea id="results" rows="3" class="form-input" placeholder="e.g., Reduced data entry time by 50% and decreased errors by 90%."&gt;&lt;/textarea&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Buttons --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button id="generateBtn" class="btn btn-primary w-full sm:w-auto"&gt;Generate Story&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Generated Content Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="generatedContentSection" class="hidden space-y-6 mt-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;hr class="border-gray-300"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Primary Story Output --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-xl font-semibold text-gray-800 mb-2"&gt;Generated Story&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="message-box max-h-96 overflow-y-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="storyOutput" class="prose max-w-none text-gray-700"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="storyLoading" class="loading-container" style="display: none;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="loading-spinner"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- New AI-powered Features --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button id="generateHeadlinesBtn" class="btn btn-secondary w-full sm:w-auto"&gt;✨ Generate Headlines&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button id="generateSocialBtn" class="btn btn-secondary w-full sm:w-auto"&gt;✨ Turn into Social Post&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Headlines Output --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="headlinesSection" class="hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-xl font-semibold text-gray-800 mb-2"&gt;Captivating Headlines&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="message-box max-h-48 overflow-y-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="headlinesOutput" class="prose max-w-none text-gray-700"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="headlinesLoading" class="loading-container" style="display: none;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="loading-spinner"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Social Post Output --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="socialSection" class="hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-xl font-semibold text-gray-800 mb-2"&gt;Social Media Post&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="message-box max-h-48 overflow-y-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="socialOutput" class="prose max-w-none text-gray-700"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="socialLoading" class="loading-container" style="display: none;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="loading-spinner"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Error Box --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="errorBox" class="text-red-500 text-sm mt-4 p-3 bg-red-50 rounded-lg hidden"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Self-contained, runnable JS</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.addEventListener('DOMContentLoaded', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const generateBtn = document.getElementById('generateBtn');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const generateHeadlinesBtn = document.getElementById('generateHeadlinesBtn');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const generateSocialBtn = document.getElementById('generateSocialBtn');</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const generatedContentSection = document.getElementById('generatedContentSection');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const storyOutput = document.getElementById('storyOutput');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const storyLoading = document.getElementById('storyLoading');</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const headlinesSection = document.getElementById('headlinesSection');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const headlinesOutput = document.getElementById('headlinesOutput');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const headlinesLoading = document.getElementById('headlinesLoading');</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const socialSection = document.getElementById('socialSection');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const socialOutput = document.getElementById('socialOutput');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const socialLoading = document.getElementById('socialLoading');</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const errorBox = document.getElementById('errorBox');</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// API configuration</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const apiKey = "";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Exponential backoff for API retries</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const callApiWithBackoff = async (payload, retries = 3, delay = 1000) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const response = await fetch(`${apiUrl}?key=${apiKey}`, {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>method: 'POST',</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>headers: { 'Content-Type': 'application/json' },</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>body: JSON.stringify(payload)</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (!response.ok) {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>if (response.status === 429 &amp;&amp; retries &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>console.warn(`Rate limited. Retrying in ${delay / 1000}s...`);</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>await new Promise(res =&gt; setTimeout(res, delay));</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>return callApiWithBackoff(payload, retries - 1, delay * 2);</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>throw new Error(`API request failed with status ${response.status}`);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const result = await response.json();</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (result.candidates &amp;&amp; result.candidates.length &gt; 0 &amp;&amp;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>result.candidates[0].content &amp;&amp; result.candidates[0].content.parts &amp;&amp;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>result.candidates[0].content.parts.length &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>return result.candidates[0].content.parts[0].text;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>throw new Error("Invalid API response structure.");</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} catch (error) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>throw new Error(`Failed to get a response from the API: ${error.message}`);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>generateBtn.addEventListener('click', async () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const clientName = document.getElementById('clientName').value;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const industry = document.getElementById('industry').value;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const problem = document.getElementById('problem').value;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const solution = document.getElementById('solution').value;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const results = document.getElementById('results').value;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (!clientName || !problem || !solution || !results) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>showError("Please fill in all the required fields.");</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Hide secondary outputs and reset</p>
+<p class="p1"><span class="Apple-converted-space">                </span>generatedContentSection.style.display = 'block';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>storyOutput.innerHTML = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>headlinesSection.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>socialSection.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>errorBox.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>storyLoading.style.display = 'flex';</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Construct the prompt for the LLM</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const prompt = `</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>You are a professional business writer. Generate a short client success story in a positive and engaging tone. The story should be a single narrative paragraph and focus on the transformation from problem to solution to results.</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Client Name: ${clientName}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Industry: ${industry || 'N/A'}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Problem: ${problem}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Our Solution: ${solution}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Results: ${results}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Start with the client's situation, introduce the problem, describe how our solution was implemented, and conclude with the tangible results and positive impact. The narrative should be no longer than 150 words.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>const payload = {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>contents: [{</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>role: "user",</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>parts: [{ text: prompt }]</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}]</p>
+<p class="p1"><span class="Apple-converted-space">                </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const generatedText = await callApiWithBackoff(payload);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>storyOutput.innerHTML = `&lt;p&gt;${generatedText.trim()}&lt;/p&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} catch (error) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>showError(`Failed to generate story: ${error.message}`);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} finally {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>storyLoading.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>generateHeadlinesBtn.addEventListener('click', async () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const story = storyOutput.innerText;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (!story) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>showError("Please generate a story first.");</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>headlinesSection.style.display = 'block';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>headlinesOutput.innerHTML = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>headlinesLoading.style.display = 'flex';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>errorBox.style.display = 'none';</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>const prompt = `</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Generate three captivating headlines for the following client success story. The headlines should be concise and attention-grabbing.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Story:</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"${story}"</p>
+<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>const payload = {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>contents: [{</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>role: "user",</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>parts: [{ text: prompt }]</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}]</p>
+<p class="p1"><span class="Apple-converted-space">                </span>};</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const generatedText = await callApiWithBackoff(payload);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const headlinesList = generatedText.split('\n').filter(line =&gt; line.trim().length &gt; 0);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>let listHtml = '&lt;ul&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>headlinesList.forEach(item =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>listHtml += `&lt;li&gt;${item.trim()}&lt;/li&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>});</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>listHtml += '&lt;/ul&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>headlinesOutput.innerHTML = listHtml;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} catch (error) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>showError(`Failed to generate headlines: ${error.message}`);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} finally {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>headlinesLoading.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>generateSocialBtn.addEventListener('click', async () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const story = storyOutput.innerText;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (!story) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>showError("Please generate a story first.");</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>socialSection.style.display = 'block';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>socialOutput.innerHTML = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>socialLoading.style.display = 'flex';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>errorBox.style.display = 'none';</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>const prompt = `</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Summarize the following client success story into a short, engaging social media post suitable for platforms like LinkedIn or X. Use a professional but positive tone. Include 2-3 relevant hashtags at the end. The post should be no more than 150 characters.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Story:</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"${story}"</p>
+<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>const payload = {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>contents: [{</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>role: "user",</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>parts: [{ text: prompt }]</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}]</p>
+<p class="p1"><span class="Apple-converted-space">                </span>};</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const generatedText = await callApiWithBackoff(payload);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>socialOutput.innerHTML = `&lt;p&gt;${generatedText.trim()}&lt;/p&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} catch (error) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>showError(`Failed to generate social media post: ${error.message}`);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} finally {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>socialLoading.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>function showError(message) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>errorBox.innerText = message;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>errorBox.style.display = 'block';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>generatedContentSection.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
